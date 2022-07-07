@@ -11,9 +11,14 @@ export class BookController {
     return this.bookService.getBookList();
   }
 
+  @Get('/:id')
+  async getBookById(@Param('id') id: string) {
+    return this.bookService.getBookById(id);
+  }
+
   @Post()
   async createBook(@Body() dto: CreateBookDto) {
-    const { name, author, backgroundColor, imageUrl, rating, report } = dto;
+    const { name, author, backgroundColor, imageUrl, rating, report, userId } = dto;
 
     await this.bookService.createBook(
       name,
@@ -22,6 +27,7 @@ export class BookController {
       imageUrl,
       rating,
       report,
+      userId
     );
   }
 

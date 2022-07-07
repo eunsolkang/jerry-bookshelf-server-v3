@@ -18,4 +18,7 @@ export class CreateBookDto {
 
   @IsString()
   readonly report: string;
+
+  @IsString()
+  readonly userId: string;
 }
